@@ -2,10 +2,13 @@
 <html>
   {% include head.html %}
   <body>
-    {% include header.html %}
-    <div id="body">
-      {{ content }}
+    <div id="all">
+      {% include header.html %}
+      <div id="body"> {{ content }} </div>
+      {% include footer.html %}
     </div>
-    {% include footer.html %}
+    {% if site.google_analytics %}
+    {% include ga.html %}
+    {% endif %}
   </body>
 </html>

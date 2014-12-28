@@ -2,5 +2,31 @@
 layout: default
 ---
 
-<div class="home">
+<link rel="stylesheet" href="/css/jquery.mmenu.css">
+<link rel="stylesheet" href="/css/font-icon.css">
+<link rel="stylesheet" href="/css/index.css">
+
+<a id="navicon" class="font-icon-menu needsclick" href="#slide-menu"></a>
+
+<div class="home clearfix">
+  {% include sidemenu.html %}
+  <ul class="posts">
+    {% for post in site.posts %}
+    <li>
+      <time>{{ post.date | date:"%Y-%m-%d" }}</time>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
 </div>
+
+<script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="/js/jquery.mmenu.min.js"></script>
+<script type="text/javascript" src="/js/fastclick.min.js"></script>
+
+<script type="text/javascript">
+  $(function(){
+    $("#menu").clone().attr('id', 'slide-menu').mmenu({});
+    FastClick.attach(document.body);
+  });
+</script>

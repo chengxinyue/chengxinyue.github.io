@@ -1,0 +1,20 @@
+/* 0em 0px */
+@media only screen and (min-width : 0em) {
+  body {
+    font-size: 0.7em;
+  }
+}
+
+/* 20em 320px */
+@media only screen and (min-width : 20em) {
+  body {
+    font-size: 0.8em;
+  }
+}
+
+/* 30em 480px */
+@media only screen and (min-width : 30em) {
+  body {
+    font-size: 1em;
+  }
+}

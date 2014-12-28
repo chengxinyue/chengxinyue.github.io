@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+{% capture JSON %} {
+  {% for cate in site.categories %}
+    {% if cate[0] != site.categories.first[0] %},{% endif %}
+    "{{ cate[0] }}": [
+      {% for post in cate[1] %}
+        {% if post != cate[1].first %},{% endif %} {
+        "title": "{{ post.title }}",
+        "date": "{{ post.date | date:"%Y-%m-%d" }}",
+        "url": "{{ post.url }}"
+        }
+      {% endfor %}
+    ]
+  {% endfor %}
+}
+{% endcapture %}
+
+<link rel="stylesheet" href="/css/jquery.mmenu.css">
+<link rel="stylesheet" href="/css/font-icon.css">
+<link rel="stylesheet" href="/css/index.css">
+
+<a id="navicon" class="font-icon-menu needsclick" href="#slide-menu"></a>
+
+<div class="home clearfix">
+  {% include sidemenu.html %}
+  <script type="text/javascript" src="/js/url.min.js"></script>
+  <script type="text/javascript">
+  (function(){
+  var cates = JSON.parse('{{ JSON | strip_newlines }}'),
+      posts = cates[url('?name')],
+      frags = ['<ul class="posts">'];
+
+  for (var i in posts) {
+    frags.push('<li>');
+    frags.push('<time>' + posts[i].date + '</time>')
+    frags.push('<a href="' + posts[i].url + '">' + posts[i].title + '</a>');
+    frags.push('</li>');
+  }
+
+  frags.push('</ul>');
+
+  var html = frags.join(' ');
+
+  document.write(html);
+  }());
+  </script>
+</div>
+
+<script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="/js/jquery.mmenu.min.js"></script>
+<script type="text/javascript" src="/js/fastclick.min.js"></script>
+
+<script type="text/javascript">
+  $(function(){
+    $("#menu").clone().attr('id', 'slide-menu').mmenu({});
+    FastClick.attach(document.body);
+  });
+</script>

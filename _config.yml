@@ -1,8 +1,12 @@
 # Site settings
 title: Your awesome title
 description: Your awesome description.
-baseurl: ""
 url: "http://chengxinyue.github.io"
+google_analytics: UA-XXXXXXXX-X
+disqus_shortname: 000000
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "tables"]
+highlighter: pygments

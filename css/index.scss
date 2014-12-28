@@ -1,0 +1,91 @@
+---
+# The necessary empty front matter
+---
+
+#body {
+  padding-top: 1.875em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+#navicon {
+  position: absolute;
+  font-size: 1.6em;
+  padding: 0.25em;
+  left: 0;
+  top: 0;
+  line-height: 1em;
+  color: #1abc9c;
+}
+
+.font-icon-menu:before {
+  position: relative;
+  top: 0.14em;
+}
+
+.posts,
+.categories {
+  position: relative;
+}
+
+.posts {
+  float: right;
+}
+
+.categories {
+  float: left;
+}
+
+.categories, #slide-menu {
+  text-transform: uppercase;
+}
+
+.categories ul {
+  padding-left: 1.25em;
+}
+
+.posts time {
+  padding-right: 1.25em;
+  color: #999999;
+}
+
+/*====== Resposive style ======*/
+
+/* 0em 0px */
+@media only screen and (min-width : 0em) {
+  #menu { display: none; }
+  #navicon { display: block; }
+  .posts { float: left; padding-top: 1.875em; }
+}
+
+/* 20em 320px */
+@media only screen and (min-width : 20em) {
+  #menu { display: none; }
+  #navicon { display: block; }
+  .posts { float: left; padding-top: 1.875em; }
+}
+
+/* 30em 480px */
+@media only screen and (min-width : 30em) {
+  #menu { display: none; }
+  #navicon { display: block; }
+  .posts { float: left; padding-top: 1.875em; }
+}
+
+/* 37.5em 600px */
+@media only screen and (min-width : 37.5em) {
+  #menu { display: inline; }
+  #navicon { display: none; }
+  .posts { float: right; padding-top: 0; }
+}
